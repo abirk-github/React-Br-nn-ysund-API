@@ -54,12 +54,13 @@ function App() {
   useEffect(() => {
     const handler = setTimeout(() => {
       makeSearch();
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(handler);
   }, [makeSearch]);
 
   const handleChange = (event) => {
+    //setItems([]);
     setSearchTerm(event.target.value);
   };
 
@@ -72,6 +73,10 @@ function App() {
   );
 
   const Items = () => {
+    if(loading){
+      return <div>Searching...</div>;
+    }
+
     if (items) {
       if (items._embedded && items._embedded.enheter) {
         return items._embedded.enheter.map(makeItem);
@@ -84,10 +89,7 @@ function App() {
 
   if (error) {
     console.log(error);
-  } else if (loading) {
-    return <div>Loading...</div>;
-  }
-
+  } 
   //truthy = ['dgdfg'] , true, { slkfmksldmf: 'sdfs'}
   //falsy  = [], '', false, null, {},
 
