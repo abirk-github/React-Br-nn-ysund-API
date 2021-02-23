@@ -67,7 +67,7 @@ function App() {
     <div key={item.organisasjonsnummer}>
       <p>{item.navn}</p>
       <p>{item.organisasjonsnummer}</p>
-      {item.konkurs && <p> KONKURS </p>}
+      {/* {item.konkurs && <p> KONKURS </p>} */}
     </div>
   );
 
